@@ -1,0 +1,203 @@
+@import 'tailwindcss';
+
+/* Enable class-based dark mode for Tailwind v4 */
+@variant dark (&:is(.dark *));
+
+@theme {
+  /* Light Mode Colors */
+  --color-cream: #faf8f5;
+  --color-beige: #f5f1ea;
+  --color-beige-dark: #e8e2d6;
+  --color-orange: #ff6b35;
+  --color-orange-dark: #e85a28;
+  --color-pink: #ff6b9d;
+  --color-gray: #6b6b6b;
+  --color-gray-light: #a8a8a8;
+  --color-white: #ffffff;
+  --color-black: #1a1a1a;
+
+  /* Spacing */
+  --spacing-section: 6rem;
+
+  /* Border Radius */
+  --radius-card: 1.5rem;
+  --radius-button: 2rem;
+}
+
+/* Custom CSS Variables for Theme Switching */
+:root {
+  --background: #faf8f5;
+  --foreground: #1a1a1a;
+  --cream: #faf8f5;
+  --beige: #f5f1ea;
+  --beige-dark: #e8e2d6;
+  --orange: #ff6b35;
+  --orange-dark: #e85a28;
+  --pink: #ff6b9d;
+  --gray: #6b6b6b;
+  --gray-light: #a8a8a8;
+  --white: #ffffff;
+  --black: #1a1a1a;
+}
+
+.dark,
+[data-theme='dark'] {
+  --background: #1a1a1a;
+  --foreground: #faf8f5;
+  --cream: #2a2a2a;
+  --beige: #333333;
+  --beige-dark: #3a3a3a;
+  --orange: #ff7b4d;
+  --orange-dark: #ff6b35;
+  --pink: #ff7ba9;
+  --gray: #a8a8a8;
+  --gray-light: #6b6b6b;
+  --white: #1a1a1a;
+  --black: #faf8f5;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-zen-kaku), 'Zen Kaku Gothic New', ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-dark);
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass,
+[data-theme='dark'] .glass {
+  background: rgba(42, 42, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--orange);
+  color: white;
+}
+
+/* 3D Perspective for Tilt Effects */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+/* Glass effect - simplified */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Playful card shadows */
+.shadow-playful {
+  box-shadow: 8px 8px 0px rgba(255, 107, 53, 0.2), -4px -4px 0px rgba(255, 107, 157, 0.15);
+}
+
+.shadow-playful-hover {
+  box-shadow: 12px 12px 0px rgba(255, 107, 53, 0.3), -6px -6px 0px rgba(255, 107, 157, 0.2);
+}
+
+[data-theme='dark'] .shadow-playful {
+  box-shadow: 8px 8px 0px rgba(255, 123, 77, 0.3), -4px -4px 0px rgba(255, 123, 169, 0.2);
+}
+
+[data-theme='dark'] .shadow-playful-hover {
+  box-shadow: 12px 12px 0px rgba(255, 123, 77, 0.4), -6px -6px 0px rgba(255, 123, 169, 0.3);
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
