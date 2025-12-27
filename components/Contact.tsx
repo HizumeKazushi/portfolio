@@ -70,30 +70,6 @@ export default function Contact() {
             );
           })}
         </div>
-
-        {/* CTA */}
-        <div className="bg-gradient-to-br from-orange to-pink rounded-3xl p-12 text-white shadow-lg hover:shadow-xl transition-all duration-700 hover:scale-105 relative overflow-hidden">
-          <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-4">
-              {portfolioData.contact.ctaTitle || "Let's create something amazing together!"}
-            </h3>
-            <p className="text-lg mb-8 opacity-90">
-              {portfolioData.contact.ctaDescription ||
-                'プロジェクトのご相談、お仕事のご依頼など、お気軽にご連絡ください。'}
-            </p>
-            <button
-              onClick={copyEmail}
-              className="inline-flex items-center gap-2 bg-white text-orange px-8 py-4 rounded-full font-semibold text-lg hover:bg-black hover:text-white transition-all duration-500 shadow-lg hover:shadow-xl hover:scale-110 group"
-            >
-              <span>{copied ? 'コピーしました！' : portfolioData.contact.ctaButton || 'Get in Touch'}</span>
-              {copied ? (
-                <Check className="w-5 h-5" />
-              ) : (
-                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              )}
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
