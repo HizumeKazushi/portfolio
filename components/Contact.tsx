@@ -1,8 +1,23 @@
+'use client';
+
 import { portfolioData } from '@/data/portfolio';
-import { Mail, ArrowUpRight } from 'lucide-react';
+import { Mail, ArrowUpRight, Check, Copy } from 'lucide-react';
 import { getIcon } from '@/lib/icons';
+import { useState } from 'react';
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(portfolioData.contact.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
   return (
     <section id="contact" className="py-24 px-6 bg-cream dark:bg-[#1a1a1a] transition-colors duration-300">
       <div className="max-w-4xl mx-auto text-center">
@@ -17,14 +32,22 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Email - simplified */}
-        <a
-          href={`mailto:${portfolioData.contact.email}`}
-          className="inline-flex items-center gap-3 text-3xl md:text-4xl font-bold text-black dark:text-white hover:text-orange transition-all duration-500 mb-12 group"
+        {/* Email - Click to copy */}
+        <button
+          onClick={copyEmail}
+          className="inline-flex items-center gap-3 text-3xl md:text-4xl font-bold text-black dark:text-white hover:text-orange transition-all duration-500 mb-4 group cursor-pointer"
         >
           <Mail className="w-10 h-10 group-hover:scale-110 transition-transform duration-300" />
           <span>{portfolioData.contact.email}</span>
-        </a>
+          {copied ? (
+            <Check className="w-6 h-6 text-green-500" />
+          ) : (
+            <Copy className="w-6 h-6 opacity-50 group-hover:opacity-100 transition-opacity" />
+          )}
+        </button>
+        <p className="text-gray dark:text-gray-light text-sm mb-12">
+          {copied ? 'コピーしました！' : 'クリックしてコピー'}
+        </p>
 
         {/* Social Links with playful tilts */}
         <div className="flex justify-center gap-6 mb-12">
@@ -58,13 +81,17 @@ export default function Contact() {
               {portfolioData.contact.ctaDescription ||
                 'プロジェクトのご相談、お仕事のご依頼など、お気軽にご連絡ください。'}
             </p>
-            <a
-              href={`mailto:${portfolioData.contact.email}`}
+            <button
+              onClick={copyEmail}
               className="inline-flex items-center gap-2 bg-white text-orange px-8 py-4 rounded-full font-semibold text-lg hover:bg-black hover:text-white transition-all duration-500 shadow-lg hover:shadow-xl hover:scale-110 group"
             >
-              <span>{portfolioData.contact.ctaButton || 'Get in Touch'}</span>
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
+              <span>{copied ? 'コピーしました！' : portfolioData.contact.ctaButton || 'Get in Touch'}</span>
+              {copied ? (
+                <Check className="w-5 h-5" />
+              ) : (
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              )}
+            </button>
           </div>
         </div>
       </div>
