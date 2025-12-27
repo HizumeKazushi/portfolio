@@ -13,7 +13,7 @@ export default function Skills() {
             {portfolioData.skillsSection.title}
           </h2>
           <p className="text-gray dark:text-gray-light text-lg max-w-2xl mx-auto">
-            デザインから開発まで、幅広いスキルセットを持っています。
+            フロントエンド、バックエンドなど、幅広いスキルセットを持っています。
           </p>
         </div>
 
