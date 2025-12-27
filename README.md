@@ -148,7 +148,3 @@ portfolio/
 - [Framer Motion](https://www.framer.com/motion/) - アニメーション
 - [Lucide React](https://lucide.dev/) - アイコン
 - [TypeScript](https://www.typescriptlang.org/) - 型安全性
-
-## 📄 ライセンス
-
-MIT License
