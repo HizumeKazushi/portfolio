@@ -10,17 +10,17 @@ const zenKakuGothicNew = Zen_Kaku_Gothic_New({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Designer & Engineer',
-  description: '機能性と美しさのバランスを探求するデザイナー兼エンジニアのポートフォリオサイト',
+  title: 'Portfolio | HizumeKazushi/mochi',
+  description: 'HizumeKazushi/mochiのポートフォリオサイト',
   keywords: ['portfolio', 'designer', 'engineer', 'web development', 'UI/UX'],
-  authors: [{ name: 'Portfolio' }],
+  authors: [{ name: 'HizumeKazushi' }],
   icons: {
     icon: '/images/prof.jpg',
     apple: '/images/prof.jpg',
   },
   openGraph: {
-    title: 'Portfolio | Designer & Engineer',
-    description: '機能性と美しさのバランスを探求するデザイナー兼エンジニアのポートフォリオサイト',
+    title: 'Portfolio | HizumeKazushi/mochi',
+    description: 'HizumeKazushi/mochiのポートフォリオサイト',
     type: 'website',
   },
 };
