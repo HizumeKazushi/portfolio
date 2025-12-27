@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   description: '機能性と美しさのバランスを探求するデザイナー兼エンジニアのポートフォリオサイト',
   keywords: ['portfolio', 'designer', 'engineer', 'web development', 'UI/UX'],
   authors: [{ name: 'Portfolio' }],
+  icons: {
+    icon: '/images/prof.jpg',
+    apple: '/images/prof.jpg',
+  },
   openGraph: {
     title: 'Portfolio | Designer & Engineer',
     description: '機能性と美しさのバランスを探求するデザイナー兼エンジニアのポートフォリオサイト',

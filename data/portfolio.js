@@ -1,8 +1,8 @@
 export const portfolioData = {
   // Site meta
   site: {
-    title: 'Portfolio | Designer & Engineer',
-    description: '機能性と美しさのバランスを探求するデザイナー兼エンジニアのポートフォリオサイト',
+    title: 'Portfolio | HizumeKazushi/mochi',
+    description: 'HizumeKazushi/mochiのポートフォリオサイト',
   },
 
   header: {
