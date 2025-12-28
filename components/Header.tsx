@@ -33,8 +33,8 @@ export default function Header() {
           ))}
         </ul>
 
-        {/* Theme Toggle & CTA Button */}
-        <div className="flex items-center gap-4">
+        {/* Theme Toggle & CTA Button - Desktop */}
+        <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
 
           {/* CTA Button */}
