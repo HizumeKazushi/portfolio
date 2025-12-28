@@ -157,6 +157,20 @@ export const portfolioData = {
         github: 'https://github.com/HizumeKazushi/shokudou-nabi',
       },
     },
+    {
+      id: 5,
+      title: 'Fideliair',
+      category: 'NativeApp',
+      description: 'Mac用音楽再生アプリ',
+      fullDescription: 'Mac用の音楽再生アプリです。SwiftUIとLiquid Glassを使用して美しいUIを実現しました。',
+      tags: ['swift', 'SwiftUI', 'Liquid Glass'],
+      image: '/images/Fideliair.png',
+      link: '/works/5',
+      externalLinks: {
+        demo: '',
+        github: 'https://github.com/HizumeKazushi/Fideliair',
+      },
+    },
   ],
 
   // Skills section config
