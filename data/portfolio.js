@@ -168,7 +168,7 @@ export const portfolioData = {
       image: '/images/Fideliair.png',
       link: '/works/5',
       externalLinks: {
-        demo: '',
+        demo: 'https://github.com/HizumeKazushi/Fideliair/releases/tag/v0.9',
         github: 'https://github.com/HizumeKazushi/Fideliair',
       },
     },
