@@ -162,7 +162,8 @@ export const portfolioData = {
       title: 'Fideliair',
       category: 'NativeApp',
       description: 'Mac用音楽再生アプリ',
-      fullDescription: 'Mac用の音楽再生アプリです。SwiftUIとLiquid Glassを使用して美しいUIを実現しました。',
+      fullDescription:
+        'Mac用の音楽再生アプリです。SwiftUIとLiquid Glassを使用して美しいUIを実現しました。YouTube MusicやGoogle Drive、ローカル再生に対応しています。',
       tags: ['swift', 'SwiftUI', 'Liquid Glass'],
       image: '/images/Fideliair.png',
       link: '/works/5',
