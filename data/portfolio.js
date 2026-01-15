@@ -183,7 +183,7 @@ export const portfolioData = {
       image: '/images/pdftopng.png',
       link: '/works/6',
       externalLinks: {
-        demo: 'https://pdftopng.vercel.app/',
+        demo: 'https://pdf-to-png-next.vercel.app/',
         github: 'https://github.com/HizumeKazushi/pdftopng',
       },
     },
