@@ -102,19 +102,18 @@ export const portfolioData = {
   works: [
     {
       id: 1,
-      title: 'Cove[開発中]',
-      category: 'SNS',
+      title: 'KakuNote',
+      category: 'WebApp',
       description: '',
-      fullDescription:
-        '新しいソーシャルネットワークサービスの開発プロジェクト。現実の繋がりを大切にするコンセプトで設計しています。',
-      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Go', 'capacitor', 'firebase'],
-      image: '/images/Cove_clear.png',
+      fullDescription: 'AIを内蔵したメモアプリケーションです。日記なども書けます',
+      tags: ['Nuxt.js', 'TypeScript', 'Tailwind CSS', 'Go', 'firebase'],
+      image: '/images/Kaku_Note.png',
       link: '/works/1',
       externalLinks: {
-        demo: '',
-        github: 'https://github.com/HizumeKazushi/Cove',
+        demo: 'https://kaku-note.vercel.app',
       },
     },
+
     {
       id: 2,
       title: '🤩部☆室☆王🤩',
@@ -131,18 +130,20 @@ export const portfolioData = {
     },
     {
       id: 3,
-      title: 'KakuNote[バックエンド構築中]',
-      category: 'WebApp',
+      title: 'Cove[開発中]',
+      category: 'SNS',
       description: '',
-      fullDescription: 'AIを内蔵したメモアプリケーションです。日記なども書けます',
-      tags: ['Nuxt.js', 'TypeScript', 'Tailwind CSS', 'Go', 'firebase'],
-      image: '/images/Kaku_Note.png',
+      fullDescription:
+        '新しいソーシャルネットワークサービスの開発プロジェクト。現実の繋がりを大切にするコンセプトで設計しています。',
+      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Go', 'capacitor', 'firebase'],
+      image: '/images/Cove_clear.png',
       link: '/works/3',
       externalLinks: {
         demo: '',
-        github: 'https://github.com/HizumeKazushi/KakuNote',
+        github: 'https://github.com/HizumeKazushi/Cove',
       },
     },
+
     {
       id: 4,
       title: '食堂ナビ',
@@ -170,6 +171,33 @@ export const portfolioData = {
       externalLinks: {
         demo: 'https://github.com/HizumeKazushi/Fideliair/releases/tag/v0.9',
         github: 'https://github.com/HizumeKazushi/Fideliair',
+      },
+    },
+    {
+      id: 6,
+      title: 'PDF to PNG',
+      category: 'WebApp',
+      description: 'PDFをPNGに変換するシンプルなWebアプリ',
+      fullDescription: '',
+      tags: ['Next.js', 'vercel'],
+      image: '/images/pdftopng.png',
+      link: '/works/6',
+      externalLinks: {
+        demo: 'https://pdftopng.vercel.app/',
+        github: 'https://github.com/HizumeKazushi/pdftopng',
+      },
+    },
+    {
+      id: 7,
+      title: 'localhost_check',
+      category: 'CLI Tool',
+      description: 'ローカルホストのポート使用状況を確認するCLIツール',
+      FullDescription: 'javascriptで書かれたCLIツールで、ローカルホストのポート使用状況を簡単に確認できます。',
+      tags: ['javascript', 'node.js'],
+      link: '/works/7',
+      externalLinks: {
+        demo: 'https://www.npmjs.com/package/localhost-port-check',
+        github: 'https://github.com/HizumeKazushi/localhost_check',
       },
     },
   ],
