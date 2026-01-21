@@ -88,7 +88,7 @@ export const portfolioData = {
       {
         year: '2025',
         title: 'DCON 参加中',
-        description: '全国高等専門学校ディープラーニングコンテストに参加。AI技術の実装に挑戦中。',
+        description: '全国高等専門学校ディープラーニングコンテストに参加中',
       },
     ],
   },
@@ -141,8 +141,7 @@ export const portfolioData = {
       title: '🤩部☆室☆王🤩',
       category: 'WebApp',
       description: 'Hack U KOSEN 2025 OSAKA',
-      fullDescription:
-        'Hack U KOSEN 2025 OSAKAに参加して作成したプロダクトです。私は組み込みのhttps://coffee-recipe-hub-teal.vercel.app/WebAppを担当しました。',
+      fullDescription: 'Hack U KOSEN 2025 OSAKAに参加して作成したプロダクトです。私は組み込みのwebappを担当しました。',
       tags: ['Vue.js', 'Next.js', 'TailwindCSS', 'Firebase', 'Vercel'],
       image: '/images/bushituoh.png',
       link: '/works/2',
