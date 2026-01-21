@@ -36,6 +36,28 @@ export default function About() {
                 </div>
               ))}
             </div>
+
+            {/* Career Timeline */}
+            {portfolioData.about.career && (
+              <div className="pt-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-6">経歴</h3>
+                <div className="space-y-4">
+                  {portfolioData.about.career.map((item, index) => (
+                    <div key={index} className="relative pl-8 pb-6 border-l-2 border-orange dark:border-pink last:pb-0">
+                      {/* Timeline dot */}
+                      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-orange dark:bg-pink border-4 border-beige dark:border-[#2a2a2a]"></div>
+
+                      {/* Content */}
+                      <div className="bg-white dark:bg-[#333333] rounded-xl p-4 md:p-6 shadow-md hover:shadow-playful transition-all duration-300 hover:translate-x-1">
+                        <div className="text-sm font-semibold text-orange dark:text-pink mb-1">{item.year}</div>
+                        <h4 className="text-lg md:text-xl font-bold text-black dark:text-white mb-2">{item.title}</h4>
+                        <p className="text-gray dark:text-gray-light text-sm md:text-base">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right - Profile Image or Icon */}

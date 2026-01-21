@@ -20,6 +20,7 @@ import {
   Mail,
   Github,
   Twitter,
+  X,
   Linkedin,
   Dribbble,
   Instagram,
@@ -62,6 +63,7 @@ export const iconMap: Record<string, LucideIcon> = {
   // Social icons
   github: Github,
   twitter: Twitter,
+  x: X,
   linkedin: Linkedin,
   dribbble: Dribbble,
   instagram: Instagram,

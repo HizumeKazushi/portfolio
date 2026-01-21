@@ -69,6 +69,28 @@ export const portfolioData = {
       { label: 'favorite language', value: 'Go' },
       { label: 'hobby', value: 'Music' },
     ],
+    career: [
+      {
+        year: '2024.12',
+        title: 'プログラミング学習開始',
+        description: '本格的にプログラミングの学習を開始。バックエンド開発を中心に学習を進める。',
+      },
+      {
+        year: '2024',
+        title: 'Hack U KOSEN 2024 参加',
+        description: 'Yahoo! JAPANが主催するハッカソンに初参加。チーム開発の経験を積む。',
+      },
+      {
+        year: '2025',
+        title: 'Hack U KOSEN 2025 OSAKA 参加',
+        description: '🤩部☆室☆王🤩プロジェクトで組み込みとWebAppを担当。実践的な開発経験を積む。',
+      },
+      {
+        year: '2025',
+        title: 'DCON 参加中',
+        description: '全国高等専門学校ディープラーニングコンテストに参加。AI技術の実装に挑戦中。',
+      },
+    ],
   },
 
   // Works section config
@@ -119,7 +141,8 @@ export const portfolioData = {
       title: '🤩部☆室☆王🤩',
       category: 'WebApp',
       description: 'Hack U KOSEN 2025 OSAKA',
-      fullDescription: 'Hack U KOSEN 2025 OSAKAに参加して作成したプロダクトです。私は組み込みのhttps://coffee-recipe-hub-teal.vercel.app/WebAppを担当しました。',
+      fullDescription:
+        'Hack U KOSEN 2025 OSAKAに参加して作成したプロダクトです。私は組み込みのhttps://coffee-recipe-hub-teal.vercel.app/WebAppを担当しました。',
       tags: ['Vue.js', 'Next.js', 'TailwindCSS', 'Firebase', 'Vercel'],
       image: '/images/bushituoh.png',
       link: '/works/2',
@@ -137,7 +160,7 @@ export const portfolioData = {
       link: '/works/3',
       externalLinks: {
         demo: 'https://coffee-recipe-hub-teal.vercel.app/',
-      }
+      },
     },
     {
       id: 4,
@@ -160,7 +183,8 @@ export const portfolioData = {
       title: '食堂ナビ',
       category: 'WebApp',
       description: '部室内のプロジェクトで作成した献立アプリ',
-      fullDescription: '寮食の献立をすぐ確認できるアプリでhttps://coffee-recipe-hub-teal.vercel.app/す。私はリーダー、WebAppを担当しました',
+      fullDescription:
+        '寮食の献立をすぐ確認できるアプリでhttps://coffee-recipe-hub-teal.vercel.app/す。私はリーダー、WebAppを担当しました',
       tags: ['Vuetify', 'Firebase', 'Rasberry Pi'],
       image: '/images/shokudou_nabi.jpg',
       link: '/works/5',
@@ -244,7 +268,7 @@ export const portfolioData = {
     ctaButton: 'Get in Touch',
     social: [
       { name: 'GitHub', url: 'https://github.com/HizumeKazushi', icon: 'github' },
-      { name: 'Twitter', url: 'https://twitter.com/20_mochi_38', icon: 'twitter' },
+      { name: 'Twitter', url: 'https://x.com/20_mochi_38', icon: 'x' },
     ],
   },
 
