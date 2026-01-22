@@ -12,6 +12,7 @@ export const portfolioData = {
       { name: 'About', href: '#about' },
       { name: 'Works', href: '#works' },
       { name: 'Skills', href: '#skills' },
+      { name: 'Blog', href: '/blog' },
       { name: 'Contact', href: '#contact' },
     ],
     ctaButton: {

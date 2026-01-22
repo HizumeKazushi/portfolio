@@ -31,8 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="scroll-smooth">
-      <body className={`${zenKakuGothicNew.variable} font-sans antialiased`}>{children}</body>
+    <html lang="ja" className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${zenKakuGothicNew.variable} font-sans antialiased`} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }
