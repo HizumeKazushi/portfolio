@@ -9,6 +9,7 @@
 - 📱 **レスポンシブ** - モバイル、タブレット、デスクトップ対応
 - ⚡ **高速** - Next.js App Router + Turbopack
 - 🔧 **簡単カスタマイズ** - `portfolio.js` で全てのコンテンツを管理
+- 📝 **Markdownブログ** - `.md` ファイルで記事を管理
 
 ## 🚀 セットアップ
 
@@ -94,7 +95,41 @@ floatingCards: [
 ]
 ```
 
-## 📁 ディレクトリ構成
+## � ブログ記事の追加
+
+`content/blog/` ディレクトリに `.md` ファイルを追加するだけで記事が公開されます。
+
+### 記事のフォーマット
+
+```markdown
+---
+title: '記事タイトル'
+date: '2026-01-22'
+excerpt: '記事の概要（一覧ページに表示されます）'
+tags: ['タグ1', 'タグ2']
+---
+
+# 本文
+
+Markdown形式で記事を書けます。
+
+## 見出し2
+
+- リスト
+- リスト
+
+\`\`\`javascript
+// コードブロックも使えます
+const hello = "world";
+\`\`\`
+```
+
+### ブログページ
+
+- 一覧: `/blog`
+- 詳細: `/blog/[ファイル名（拡張子なし）]`
+
+## �📁 ディレクトリ構成
 
 ```
 portfolio/
@@ -102,6 +137,9 @@ portfolio/
 │   ├── layout.tsx          # レイアウト設定
 │   ├── page.tsx            # ホームページ
 │   ├── globals.css         # グローバルスタイル
+│   ├── blog/               # ブログページ
+│   │   ├── page.tsx        # 一覧ページ
+│   │   └── [slug]/         # 詳細ページ
 │   └── works/              # 作品ページ
 ├── components/             # Reactコンポーネント
 │   ├── Header.tsx
@@ -111,10 +149,13 @@ portfolio/
 │   ├── Skills.tsx
 │   ├── Contact.tsx
 │   └── ...
+├── content/
+│   └── blog/               # ★ ブログ記事（.md）
 ├── data/
 │   └── portfolio.js        # ★ コンテンツ管理
 ├── lib/
-│   └── icons.ts            # アイコンマッピング
+│   ├── icons.ts            # アイコンマッピング
+│   └── blog.ts             # ブログユーティリティ
 └── public/
     └── images/             # 画像ファイル
 ```
@@ -148,3 +189,5 @@ portfolio/
 - [Framer Motion](https://www.framer.com/motion/) - アニメーション
 - [Lucide React](https://lucide.dev/) - アイコン
 - [TypeScript](https://www.typescriptlang.org/) - 型安全性
+- [gray-matter](https://github.com/jonschlinkert/gray-matter) - Markdownメタデータ
+- [remark](https://github.com/remarkjs/remark) - Markdown変換
