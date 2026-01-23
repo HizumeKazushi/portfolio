@@ -184,7 +184,7 @@ export const portfolioData = {
       category: 'WebApp',
       description: '部室内のプロジェクトで作成した献立アプリ',
       fullDescription:
-        '寮食の献立をすぐ確認できるアプリでhttps://coffee-recipe-hub-teal.vercel.app/す。私はリーダー、WebAppを担当しました',
+        '寮食の献立をすぐ確認できるアプリです。私はリーダー、WebAppを担当しました',
       tags: ['Vuetify', 'Firebase', 'Rasberry Pi'],
       image: '/images/shokudou_nabi.jpg',
       link: '/works/5',
