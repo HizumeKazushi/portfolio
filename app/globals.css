@@ -214,7 +214,7 @@ body {
 
 /* Prose Typography for Blog */
 .prose {
-  color: var(--gray);
+  color: #333333 !important;
   line-height: 1.8;
 }
 
@@ -247,6 +247,7 @@ body {
 
 .prose p {
   margin-bottom: 1.5em;
+  color: #333333 !important;
 }
 
 .prose a {
@@ -273,6 +274,7 @@ body {
 
 .prose li {
   margin-bottom: 0.5em;
+  color: #333333 !important;
 }
 
 .prose ul li {
@@ -327,9 +329,13 @@ body {
 }
 
 /* Dark mode prose */
-.dark .prose,
-.prose.dark\:prose-invert {
-  color: var(--gray-light);
+.dark .prose {
+  color: #e0e0e0 !important;
+}
+
+.dark .prose p,
+.dark .prose li {
+  color: #e0e0e0 !important;
 }
 
 .dark .prose h1,
@@ -347,11 +353,18 @@ body {
 }
 
 .dark .prose code {
-  background: var(--beige);
+  background: #3a3a3a;
+  color: #e0e0e0;
 }
 
 .dark .prose pre {
-  background: #0d0d0d;
+  background: #1e1e1e !important;
+  color: #f8f8f2 !important;
+}
+
+.dark .prose pre code {
+  background: transparent !important;
+  color: #f8f8f2 !important;
 }
 
 .dark .prose blockquote {

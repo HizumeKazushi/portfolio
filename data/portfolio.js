@@ -8,16 +8,16 @@ export const portfolioData = {
   header: {
     name: 'PORTFOLIO.',
     navigation: [
-      { name: 'Home', href: '#home' },
-      { name: 'About', href: '#about' },
-      { name: 'Works', href: '#works' },
-      { name: 'Skills', href: '#skills' },
+      { name: 'Home', href: '/#home' },
+      { name: 'About', href: '/#about' },
+      { name: 'Works', href: '/#works' },
+      { name: 'Skills', href: '/#skills' },
       { name: 'Blog', href: '/blog' },
-      { name: 'Contact', href: '#contact' },
+      { name: 'Contact', href: '/#contact' },
     ],
     ctaButton: {
       text: "Let's Talk",
-      href: '#contact',
+      href: '/#contact',
     },
   },
 
