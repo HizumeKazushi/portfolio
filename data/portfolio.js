@@ -89,7 +89,7 @@ export const portfolioData = {
       {
         year: '2025',
         title: 'DCON 参加中',
-        description: '全国高等専門学校ディープラーニングコンテストに参加中',
+        description: '全国高等専門学校ディープラーニングコンテストに参加中。本戦出場決定',
       },
     ],
   },
