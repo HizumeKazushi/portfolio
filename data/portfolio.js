@@ -93,7 +93,7 @@ export const portfolioData = {
       },
       {
         year: `2026`,
-        title: 'GoCollege　参加',
+        title: 'GoCollege 参加',
         description: 'サイバーエージェント様が主催するGo言語のインターンに参加。ベストセキュリティ賞を受賞。',
       },
     ],
