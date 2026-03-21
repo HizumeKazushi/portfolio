@@ -91,6 +91,11 @@ export const portfolioData = {
         title: 'DCON 参加中',
         description: '全国高等専門学校ディープラーニングコンテストに参加中。本戦出場決定',
       },
+      {
+        year: `2026`,
+        title: 'GoCollege　参加',
+        description: 'サイバーエージェント様が主催するGo言語のインターンに参加。ベストセキュリティ賞を受賞。',
+      },
     ],
   },
 
@@ -183,8 +188,7 @@ export const portfolioData = {
       title: '食堂ナビ',
       category: 'WebApp',
       description: '部室内のプロジェクトで作成した献立アプリ',
-      fullDescription:
-        '寮食の献立をすぐ確認できるアプリです。私はリーダー、WebAppを担当しました',
+      fullDescription: '寮食の献立をすぐ確認できるアプリです。私はリーダー、WebAppを担当しました',
       tags: ['Vuetify', 'Firebase', 'Rasberry Pi'],
       image: '/images/shokudou_nabi.jpg',
       link: '/works/5',
