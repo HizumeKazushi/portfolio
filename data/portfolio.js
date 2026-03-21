@@ -254,7 +254,7 @@ export const portfolioData = {
     },
     {
       category: 'Backend',
-      items: ['Go', 'MySQL', 'PostgreSQL', 'docker'],
+      items: ['Go', 'MySQL', 'Redis', 'docker'],
     },
     {
       category: 'Tools',
