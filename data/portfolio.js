@@ -1,8 +1,8 @@
 export const portfolioData = {
   // Site meta
   site: {
-    title: 'Portfolio | HizumeKazushi/mochi',
-    description: 'HizumeKazushi/mochiのポートフォリオサイト',
+    title: 'Portfolio | hizkz',
+    description: 'hizkzのポートフォリオサイト',
   },
 
   header: {
@@ -249,16 +249,12 @@ export const portfolioData = {
 
   skills: [
     {
-      category: 'Frontend',
-      items: ['Nuxt.js', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-    },
-    {
       category: 'Backend',
       items: ['Go', 'MySQL', 'Redis', 'docker'],
     },
     {
       category: 'Tools',
-      items: ['Git', 'GitHub', 'Notion', 'obsidian'],
+      items: ['Git', 'GitHub', 'Notion'],
     },
   ],
 
@@ -272,7 +268,12 @@ export const portfolioData = {
     ctaButton: 'Get in Touch',
     social: [
       { name: 'GitHub', url: 'https://github.com/HizumeKazushi', icon: 'github' },
-      { name: 'Twitter', url: 'https://x.com/20_mochi_38', icon: 'x' },
+      { name: 'Twitter', url: 'https://x.com/hiz_kz', icon: 'x' },
+      {
+        name: 'Spotify',
+        url: 'https://open.spotify.com/playlist/0d9a9uhMqJpqoQRC5FKBmu?si=e9efb259fe61473a',
+        icon: 'spotify',
+      },
     ],
   },
 
