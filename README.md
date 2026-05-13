@@ -8,7 +8,7 @@
 - 🌙 **ダークモード対応** - ボタンで切り替え可能
 - 📱 **レスポンシブ** - モバイル、タブレット、デスクトップ対応
 - ⚡ **高速** - Next.js App Router + Turbopack
-- 🔧 **簡単カスタマイズ** - `portfolio.js` で全てのコンテンツを管理
+- 🔧 **簡単カスタマイズ** - `data/*.ts` で用途別にコンテンツを管理
 - 📝 **Markdownブログ** - `.md` ファイルで記事を管理
 
 ## 🚀 セットアップ
@@ -28,30 +28,37 @@ npm run build
 
 ## 📝 コンテンツの編集
 
-全てのコンテンツは `data/portfolio.js` で管理されています。
+コンテンツは `data/` 配下の TypeScript ファイルで用途別に管理されています。
+
+- `data/site.ts` - サイト設定、ヘッダー、ヒーロー、フッター
+- `data/profile.ts` - プロフィール、経歴
+- `data/works.ts` - 作品一覧、作品ページ文言
+- `data/skills.ts` - スキル
+- `data/contact.ts` - 連絡先
+- `data/types.ts` - コンテンツ型定義
+- `data/portfolio.ts` - 各データをまとめて公開
 
 ### 基本情報
 
-```javascript
-// data/portfolio.js
-export const portfolioData = {
-  site: {
-    title: 'Portfolio | Your Name',
-    description: 'あなたの説明文',
-  },
-  header: {
-    name: 'PORTFOLIO.',
-    navigation: [...],
-    ctaButton: { text: 'Let\'s Talk', href: '#contact' },
-  },
-  // ...
-}
+```typescript
+// data/site.ts
+export const site = {
+  title: 'Portfolio | Your Name',
+  description: 'あなたの説明文',
+};
+
+export const header = {
+  name: 'PORTFOLIO.',
+  navigation: [...],
+  ctaButton: { text: 'Let\'s Talk', href: '#contact' },
+};
 ```
 
 ### 作品の追加
 
-```javascript
-works: [
+```typescript
+// data/works.ts
+export const works = [
   {
     id: 1,
     title: 'プロジェクト名',
@@ -72,7 +79,8 @@ works: [
 
 ### プロフィール画像
 
-```javascript
+```typescript
+// data/profile.ts
 about: {
   profileImage: '/images/prof.jpg',  // public/images/ に配置
   // ...
@@ -152,7 +160,13 @@ portfolio/
 ├── content/
 │   └── blog/               # ★ ブログ記事（.md）
 ├── data/
-│   └── portfolio.js        # ★ コンテンツ管理
+│   ├── contact.ts          # 連絡先
+│   ├── portfolio.ts        # ★ コンテンツ集約
+│   ├── profile.ts          # プロフィール
+│   ├── site.ts             # サイト設定
+│   ├── skills.ts           # スキル
+│   ├── types.ts            # 型定義
+│   └── works.ts            # 作品
 ├── lib/
 │   ├── icons.ts            # アイコンマッピング
 │   └── blog.ts             # ブログユーティリティ
