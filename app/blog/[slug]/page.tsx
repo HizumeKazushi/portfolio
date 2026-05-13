@@ -40,7 +40,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-cream dark:bg-[#1a1a1a] transition-colors duration-300">
+    <div className="min-h-screen bg-cream dark:bg-black transition-colors duration-300">
       <Header />
 
       <main className="pt-32 pb-24 px-6">

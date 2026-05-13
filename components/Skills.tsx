@@ -33,8 +33,8 @@ export default function Skills() {
                     key={itemIndex}
                     className="flex items-center gap-3 text-sm md:text-base text-gray dark:text-gray-light hover:text-black dark:hover:text-white transition-colors duration-300"
                   >
-                    <div className="w-2 h-2 bg-orange rounded-full flex-shrink-0"></div>
-                    <span className="break-words">{item}</span>
+                    <div className="w-2 h-2 bg-orange rounded-full shrink-0"></div>
+                    <span className="wrap-break-word">{item}</span>
                   </li>
                 ))}
               </ul>

@@ -1,7 +1,7 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio';
-import { Mail, ArrowUpRight, Check, Copy } from 'lucide-react';
+import { Check, Copy, Mail } from 'lucide-react';
 import { getIcon } from '@/lib/icons';
 import { useState } from 'react';
 
@@ -19,7 +19,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-cream dark:bg-[#1a1a1a] transition-colors duration-300">
+    <section id="contact" className="py-24 px-6 bg-cream dark:bg-black transition-colors duration-300">
       <div className="max-w-4xl mx-auto text-center">
         {/* Section Header */}
         <div className="mb-12">

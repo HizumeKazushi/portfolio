@@ -1,4 +1,5 @@
 import { getIcon } from '@/lib/icons';
+import { createElement } from 'react';
 
 interface FloatingCardProps {
   title: string;
@@ -10,11 +11,9 @@ interface FloatingCardProps {
 
 export default function FloatingCard({ title, subtitle, icon, color, delay = 0 }: FloatingCardProps) {
   const colorClasses = {
-    orange: 'bg-gradient-to-br from-orange to-orange-dark',
-    pink: 'bg-gradient-to-br from-pink to-purple-500',
+    orange: 'bg-linear-to-br from-orange to-orange-dark',
+    pink: 'bg-linear-to-br from-pink to-purple-500',
   };
-
-  const IconComponent = getIcon(icon);
 
   return (
     <div
@@ -25,13 +24,13 @@ export default function FloatingCard({ title, subtitle, icon, color, delay = 0 }
     >
       <div className="flex items-start gap-3 md:gap-4">
         <div
-          className={`w-10 h-10 md:w-12 md:h-12 ${colorClasses[color]} rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300 flex-shrink-0`}
+          className={`w-10 h-10 md:w-12 md:h-12 ${colorClasses[color]} rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300 shrink-0`}
         >
-          <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          {createElement(getIcon(icon), { className: 'w-5 h-5 md:w-6 md:h-6 text-white' })}
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-base md:text-lg text-black dark:text-white mb-1 break-words">{title}</h3>
-          <p className="text-xs md:text-sm text-gray dark:text-gray-light leading-relaxed break-words">{subtitle}</p>
+          <h3 className="font-bold text-base md:text-lg text-black dark:text-white mb-1 wrap-break-word">{title}</h3>
+          <p className="text-xs md:text-sm text-gray dark:text-gray-light leading-relaxed wrap-break-word">{subtitle}</p>
         </div>
       </div>
     </div>

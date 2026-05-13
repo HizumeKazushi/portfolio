@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden bg-cream dark:bg-[#1a1a1a] transition-colors duration-300"
+      className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden bg-cream dark:bg-black transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -51,7 +51,7 @@ export default function Hero() {
           </div>
 
           {/* Right Content - Floating Cards */}
-          <div className="hidden lg:block relative h-[600px]">
+          <div className="hidden lg:block relative h-150">
             {/* Large Accent Card - Glass style like floatingCards */}
             <div
               className="absolute top-0 right-0 w-80 h-96 glass rounded-3xl shadow-xl z-10 flex items-center justify-center transform transition-transform duration-500 hover:scale-105"

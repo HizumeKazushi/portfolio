@@ -3,31 +3,33 @@
 import { Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+type Theme = 'light' | 'dark';
+
+function applyTheme(newTheme: 'light' | 'dark') {
+  document.documentElement.setAttribute('data-theme', newTheme);
+
+  if (newTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    // Get theme from localStorage or system preference
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const initialTheme = savedTheme || systemTheme;
+    window.requestAnimationFrame(() => {
+      const savedTheme = localStorage.getItem('theme') as Theme | null;
+      const systemTheme: Theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const initialTheme = savedTheme || systemTheme;
 
-    setTheme(initialTheme);
-    applyTheme(initialTheme);
+      setTheme(initialTheme);
+      setMounted(true);
+      applyTheme(initialTheme);
+    });
   }, []);
-
-  const applyTheme = (newTheme: 'light' | 'dark') => {
-    // Apply both data-theme attribute and dark class for compatibility
-    document.documentElement.setAttribute('data-theme', newTheme);
-
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
