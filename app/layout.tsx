@@ -9,7 +9,10 @@ const zenKakuGothicNew = Zen_Kaku_Gothic_New({
   display: 'swap',
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Portfolio | HizumeKazushi/mochi',
   description: 'HizumeKazushi/mochiのポートフォリオサイト',
   keywords: ['portfolio', 'designer', 'engineer', 'web development', 'UI/UX'],

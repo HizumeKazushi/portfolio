@@ -1,13 +1,14 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio';
-import { useState, useCallback, useMemo } from 'react';
+import { getFeaturedWorks } from '@/lib/works';
+import { useState, useCallback } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Works() {
-  // Only show works with id 1-3 in Selected Works section
-  const selectedWorks = useMemo(() => portfolioData.works.filter((work) => work.id >= 1 && work.id <= 3), []);
+  const selectedWorks = getFeaturedWorks();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -47,7 +48,7 @@ export default function Works() {
   return (
     <section
       id="works"
-      className="py-24 px-6 relative overflow-hidden bg-cream dark:bg-[#1a1a1a] transition-colors duration-300"
+      className="py-24 px-6 relative overflow-hidden bg-cream dark:bg-black transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -97,15 +98,17 @@ export default function Works() {
               }}
             >
               {currentWork.image && !currentWork.image.includes('project') ? (
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="relative aspect-4/3 overflow-hidden">
+                  <Image
                     src={currentWork.image}
                     alt={currentWork.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
               ) : (
-                <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center relative overflow-hidden">
+                <div className="aspect-4/3 bg-linear-to-br from-green-100 to-green-50 flex items-center justify-center relative overflow-hidden">
                   <div className="text-center p-8 relative z-10">
                     <p className="text-3xl md:text-4xl font-serif italic text-green-600 group-hover:scale-110 transition-transform duration-700">
                       {currentWork.title}

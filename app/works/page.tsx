@@ -1,17 +1,20 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio';
+import { getAllWorks } from '@/lib/works';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 export default function WorksPage() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const works = getAllWorks();
 
   return (
     <motion.main
-      className="min-h-screen bg-cream dark:bg-[#1a1a1a] transition-colors duration-300"
+      className="min-h-screen bg-cream dark:bg-black transition-colors duration-300"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
@@ -45,7 +48,7 @@ export default function WorksPage() {
       {/* Works List */}
       <section className="pb-24">
         <div className="max-w-6xl mx-auto px-6">
-          {portfolioData.works.map((work, index) => (
+          {works.map((work, index) => (
             <motion.div
               key={work.id}
               initial={{ opacity: 0, y: 40 }}
@@ -129,9 +132,11 @@ export default function WorksPage() {
                   >
                     <div className="w-full h-full bg-white dark:bg-[#333333] flex items-center justify-center">
                       {work.image && !work.image.includes('project') ? (
-                        <img src={work.image} alt={work.title} className="w-full h-full object-contain" />
+                        <div className="relative w-full h-full">
+                          <Image src={work.image} alt={work.title} fill sizes="16rem" className="object-contain" />
+                        </div>
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-50 dark:from-green-900/30 dark:to-green-800/20 flex items-center justify-center">
+                        <div className="w-full h-full bg-linear-to-br from-green-100 to-green-50 dark:from-green-900/30 dark:to-green-800/20 flex items-center justify-center">
                           <p className="text-xl font-serif italic text-green-600 dark:text-green-400">{work.title}</p>
                         </div>
                       )}
