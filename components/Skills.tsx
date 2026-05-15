@@ -14,9 +14,7 @@ export default function Skills() {
           <h2 className="text-5xl md:text-6xl font-bold text-black dark:text-white mb-4">
             {portfolioData.skillsSection.title}
           </h2>
-          <p className="text-gray dark:text-gray-light text-lg max-w-2xl mx-auto">
-            フロントエンド、バックエンドなど、幅広いスキルセットを持っています。
-          </p>
+          <p className="text-gray dark:text-gray-light text-lg max-w-2xl mx-auto">バックエンドを主に開発しています。</p>
         </div>
 
         {/* Skills Grid - Responsive */}
