@@ -70,6 +70,18 @@ export type HeroContent = {
   }[];
 };
 
+export type Career = {
+  id: number;
+  year: string;
+  title: string;
+  category: string;
+  description: string;
+  fullDescription?: string;
+  tags: string[];
+  highlights: string[];
+  link: string;
+};
+
 export type ProfileContent = {
   title: string;
   subtitle: string;
@@ -80,11 +92,7 @@ export type ProfileContent = {
     label: string;
     value: string;
   }[];
-  career?: {
-    year: string;
-    title: string;
-    description: string;
-  }[];
+  career?: Career[];
 };
 
 export type Work = {

@@ -8,7 +8,7 @@ export const skillsSection = {
 export const skills = [
   {
     category: 'Backend',
-    items: ['Go', 'MySQL', 'Redis', 'docker'],
+    items: ['Go', 'MySQL', 'Redis', 'Docker'],
   },
   {
     category: 'Tools',

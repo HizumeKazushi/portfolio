@@ -1,11 +1,16 @@
 import { portfolioData } from '@/data/portfolio';
 import { getIcon } from '@/lib/icons';
+import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ProfileIcon = getIcon(portfolioData.about.icon || 'user');
 
 export default function About() {
   const profileImage = portfolioData.about.profileImage;
+  const career = portfolioData.about.career ?? [];
+  const careerStart = career[0]?.year ?? '';
+  const careerLatest = career[career.length - 1]?.year ?? '';
 
   return (
     <section id="about" className="py-24 px-6 bg-beige dark:bg-[#2a2a2a] transition-colors duration-300">
@@ -69,23 +74,99 @@ export default function About() {
         </div>
 
         {/* Career Timeline - Centered */}
-        {portfolioData.about.career && (
-          <div className="pt-20 max-w-3xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-6 text-center">経歴</h3>
-            <div className="space-y-4">
-              {portfolioData.about.career.map((item, index) => (
-                <div key={index} className="relative pl-8 pb-6 border-l-2 border-orange dark:border-pink last:pb-0">
-                  {/* Timeline dot */}
-                  <div className="absolute -left-2.25 top-0 w-4 h-4 rounded-full bg-orange dark:bg-pink border-4 border-beige dark:border-[#2a2a2a]"></div>
+        {career.length > 0 && (
+          <div className="pt-20">
+            <div className="mx-auto mb-10 grid max-w-5xl gap-8 border-y border-beige-dark py-8 dark:border-[#3a3a3a] lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
+              <div>
+                <p className="mb-2 text-sm font-semibold text-orange dark:text-pink">これまでの歩み</p>
+                <h3 className="mb-4 text-3xl font-bold text-black dark:text-white md:text-4xl">経歴</h3>
+                <p className="max-w-2xl text-sm leading-relaxed text-gray dark:text-gray-light md:text-base">
+                  学習開始からハッカソン、コンテスト、インターンまで、開発経験を積み上げてきた流れです。
+                </p>
+              </div>
 
-                  {/* Content */}
-                  <div className="bg-white dark:bg-[#333333] rounded-xl p-4 md:p-6 shadow-md hover:shadow-playful transition-all duration-300 hover:translate-x-1">
-                    <div className="text-sm font-semibold text-orange dark:text-pink mb-1">{item.year}</div>
-                    <h4 className="text-lg md:text-xl font-bold text-black dark:text-white mb-2">{item.title}</h4>
-                    <p className="text-gray dark:text-gray-light text-sm md:text-base">{item.description}</p>
-                  </div>
+              <dl className="grid grid-cols-3 gap-4 border-t border-beige-dark pt-5 text-sm dark:border-[#3a3a3a] lg:grid-cols-1 lg:border-t-0 lg:pt-0">
+                <div>
+                  <dt className="mb-1 font-semibold text-gray dark:text-gray-light">期間</dt>
+                  <dd className="font-bold text-black dark:text-white">
+                    {careerStart} - {careerLatest}
+                  </dd>
                 </div>
-              ))}
+                <div>
+                  <dt className="mb-1 font-semibold text-gray dark:text-gray-light">項目数</dt>
+                  <dd className="font-bold text-black dark:text-white">{career.length}件</dd>
+                </div>
+                <div>
+                  <dt className="mb-1 font-semibold text-gray dark:text-gray-light">現在の軸</dt>
+                  <dd className="font-bold text-black dark:text-white">Go / Backend</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div className="mx-auto max-w-5xl">
+              <div className="relative border-t border-beige-dark dark:border-[#3a3a3a]">
+                {career.map((item, index) => {
+                  const isLatest = index === career.length - 1;
+
+                  return (
+                    <Link
+                      key={`${item.year}-${item.title}`}
+                      href={item.link}
+                      className="group grid gap-4 border-b border-beige-dark py-7 transition-colors hover:border-orange dark:border-[#3a3a3a] dark:hover:border-pink md:grid-cols-[8rem_2rem_minmax(0,1fr)_2rem] md:items-start"
+                      aria-label={`${item.title}の詳細を見る`}
+                    >
+                      <div className="flex items-center gap-3 text-sm font-bold text-orange dark:text-pink md:block">
+                        <span>{item.year}</span>
+                        {isLatest && (
+                          <span className="border-l border-beige-dark pl-3 text-xs text-black dark:border-[#3a3a3a] dark:text-white md:mt-2 md:block md:border-l-0 md:pl-0">
+                            最新
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="hidden md:flex md:flex-col md:items-center">
+                        <span className="mt-1 size-3 rounded-full border-2 border-orange bg-beige dark:border-pink dark:bg-[#2a2a2a]" />
+                        <span className="mt-3 h-full min-h-16 w-px bg-beige-dark dark:bg-[#3a3a3a]" />
+                      </div>
+
+                      <div>
+                        <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                          <h4 className="text-xl font-bold leading-snug text-black transition-colors group-hover:text-orange dark:text-white dark:group-hover:text-pink md:text-2xl">
+                            {item.title}
+                          </h4>
+                          <span className="text-xs font-semibold text-gray dark:text-gray-light">
+                            {item.category}
+                          </span>
+                        </div>
+                        <p className="max-w-2xl text-sm leading-relaxed text-gray dark:text-gray-light md:text-base">
+                          {item.description}
+                        </p>
+                        <ul className="mt-3 flex flex-wrap gap-2">
+                          {item.tags.slice(0, 3).map((tag) => (
+                            <li key={tag} className="text-xs font-medium text-gray dark:text-gray-light">
+                              #{tag}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="flex size-8 items-center justify-center text-gray transition-colors group-hover:text-orange dark:text-gray-light dark:group-hover:text-pink">
+                        <ArrowUpRight className="size-4" />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="mx-auto mt-8 max-w-5xl">
+              <Link
+                href={career[career.length - 1]?.link ?? '/#about'}
+                className="group inline-flex items-center gap-2 text-sm font-bold text-black transition-colors hover:text-orange dark:text-white dark:hover:text-pink"
+              >
+                最新の経歴を見る
+                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
           </div>
         )}

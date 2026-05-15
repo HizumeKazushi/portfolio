@@ -20,4 +20,4 @@ export const portfolioData = {
   footer,
 } satisfies PortfolioData;
 
-export type { PortfolioData, Work } from './types';
+export type { Career, PortfolioData, Work } from './types';

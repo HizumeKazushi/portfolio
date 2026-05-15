@@ -1,6 +1,8 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio';
+import { getSkillIconConfig } from '@/lib/skill-icons';
+import { createElement } from 'react';
 
 export default function Skills() {
   return (
@@ -18,7 +20,7 @@ export default function Skills() {
         </div>
 
         {/* Skills Grid - Responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
           {portfolioData.skills.map((skillGroup, index) => (
             <div
               key={index}
@@ -28,15 +30,24 @@ export default function Skills() {
                 {skillGroup.category}
               </h3>
               <ul className="space-y-2 md:space-y-3">
-                {skillGroup.items.map((item, itemIndex) => (
-                  <li
-                    key={itemIndex}
-                    className="flex items-center gap-3 text-sm md:text-base text-gray dark:text-gray-light hover:text-black dark:hover:text-white transition-colors duration-300"
-                  >
-                    <div className="w-2 h-2 bg-orange rounded-full shrink-0"></div>
-                    <span className="wrap-break-word">{item}</span>
-                  </li>
-                ))}
+                {skillGroup.items.map((item, itemIndex) => {
+                  const iconConfig = getSkillIconConfig(item);
+
+                  return (
+                    <li
+                      key={itemIndex}
+                      className="flex items-center gap-3 text-sm md:text-base text-gray dark:text-gray-light hover:text-black dark:hover:text-white transition-colors duration-300"
+                    >
+                      <span
+                        className={`flex size-10 shrink-0 items-center justify-center rounded-xl ${iconConfig.className}`}
+                        aria-hidden="true"
+                      >
+                        {createElement(iconConfig.icon, { className: 'size-6' })}
+                      </span>
+                      <span className="wrap-break-word">{item}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
