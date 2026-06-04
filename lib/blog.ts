@@ -5,6 +5,11 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
+const excludedPostFiles = new Set(['template.md']);
+
+function isPostFile(file: string): boolean {
+  return file.endsWith('.md') && !excludedPostFiles.has(file);
+}
 
 export interface PostMeta {
   slug: string;
@@ -22,7 +27,7 @@ export function getPostSlugs(): string[] {
   if (!fs.existsSync(postsDirectory)) {
     return [];
   }
-  return fs.readdirSync(postsDirectory).filter((file) => file.endsWith('.md'));
+  return fs.readdirSync(postsDirectory).filter(isPostFile);
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -48,6 +53,10 @@ export function getAllPosts(): PostMeta[] {
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
+  if (!isPostFile(`${slug}.md`)) {
+    return null;
+  }
+
   const fullPath = path.join(postsDirectory, `${slug}.md`);
 
   if (!fs.existsSync(fullPath)) {

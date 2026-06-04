@@ -9,7 +9,7 @@ export const contact = {
   ctaDescription: 'プロジェクトのご相談、お仕事のご依頼など、お気軽にご連絡ください。',
   ctaButton: 'Get in Touch',
   social: [
-    { name: 'GitHub', url: 'https://github.com/HizumeKazushi', icon: 'github' },
+    { name: 'GitHub', url: 'https://github.com/HizKz', icon: 'github' },
     { name: 'Twitter', url: 'https://x.com/hiz_kz', icon: 'x' },
     {
       name: 'Spotify',

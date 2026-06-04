@@ -69,13 +69,14 @@ export const works = [
     title: 'Cove[開発中]',
     category: 'SNS',
     description: '',
-    fullDescription: '新しいソーシャルネットワークサービスの開発プロジェクト。現実の繋がりを大切にするコンセプトで設計しています。',
+    fullDescription:
+      '新しいソーシャルネットワークサービスの開発プロジェクト。現実の繋がりを大切にするコンセプトで設計しています。',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Go', 'capacitor', 'firebase'],
     image: '/images/Cove_clear.png',
     link: '/works/4',
     externalLinks: {
       demo: '',
-      github: 'https://github.com/HizumeKazushi/Cove',
+      github: 'https://github.com/HizKz/Cove',
     },
   },
   {
@@ -89,7 +90,7 @@ export const works = [
     link: '/works/5',
     externalLinks: {
       demo: 'https://shokudou-nabi.web.app/',
-      github: 'https://github.com/HizumeKazushi/shokudou-nabi',
+      github: 'https://github.com/HizKz/shokudou-nabi',
     },
   },
   {
@@ -103,8 +104,8 @@ export const works = [
     image: '/images/Fideliair.png',
     link: '/works/6',
     externalLinks: {
-      demo: 'https://github.com/HizumeKazushi/Fideliair/releases/tag/v0.9',
-      github: 'https://github.com/HizumeKazushi/Fideliair',
+      demo: 'https://github.com/HizKz/Fideliair/releases/tag/v0.9',
+      github: 'https://github.com/HizKz/Fideliair',
     },
   },
   {
@@ -118,7 +119,7 @@ export const works = [
     link: '/works/7',
     externalLinks: {
       demo: 'https://pdf-to-png-next.vercel.app/',
-      github: 'https://github.com/HizumeKazushi/pdftopng',
+      github: 'https://github.com/HizKz/pdftopng',
     },
   },
   {
@@ -131,7 +132,7 @@ export const works = [
     link: '/works/8',
     externalLinks: {
       demo: 'https://www.npmjs.com/package/localhost-port-check',
-      github: 'https://github.com/HizumeKazushi/localhost_check',
+      github: 'https://github.com/HizKz/localhost_check',
     },
   },
 ] satisfies Work[];

@@ -1,42 +1,58 @@
 # Portfolio Website
 
-モダンでインタラクティブなポートフォリオサイトです。Next.js 16、Tailwind CSS、Framer Motion を使用しています。
+Next.js App Router で作られたポートフォリオサイトです。プロフィール、経歴、制作実績、スキル、連絡先、Markdown ブログを管理できます。
 
-## ✨ 特徴
+## 特徴
 
-- 🎨 **美しいデザイン** - グラスモーフィズム、スムーズなアニメーション
-- 🌙 **ダークモード対応** - ボタンで切り替え可能
-- 📱 **レスポンシブ** - モバイル、タブレット、デスクトップ対応
-- ⚡ **高速** - Next.js App Router + Turbopack
-- 🔧 **簡単カスタマイズ** - `data/*.ts` で用途別にコンテンツを管理
-- 📝 **Markdownブログ** - `.md` ファイルで記事を管理
+- ダークモード対応
+- レスポンシブ対応
+- `data/*.ts` によるコンテンツ管理
+- 制作実績の一覧・詳細ページ
+- 経歴の一覧表示・詳細ページ
+- `content/blog/*.md` による Markdown ブログ
+- Framer Motion によるページ・要素アニメーション
 
-## 🚀 セットアップ
+## セットアップ
 
 ```bash
-# 依存関係のインストール
 npm install
-
-# 開発サーバーの起動
 npm run dev
-
-# ビルド
-npm run build
 ```
 
-開発サーバー: http://localhost:3000
+開発サーバーは通常 `http://localhost:3000` で起動します。
 
-## 📝 コンテンツの編集
+## よく使うコマンド
 
-コンテンツは `data/` 配下の TypeScript ファイルで用途別に管理されています。
+```bash
+# 開発サーバー
+npm run dev
+
+# ESLint
+npm run lint
+
+# TypeScript の型チェック
+npx tsc --noEmit
+
+# 本番ビルド
+npm run build
+
+# 本番サーバー
+npm run start
+```
+
+## コンテンツ編集
+
+サイトの主要コンテンツは `data/` 配下の TypeScript ファイルで管理します。詳しい編集手順は [CONTENT_EDITING_GUIDE.md](./CONTENT_EDITING_GUIDE.md) も参照してください。
 
 - `data/site.ts` - サイト設定、ヘッダー、ヒーロー、フッター
 - `data/profile.ts` - プロフィール、経歴
-- `data/works.ts` - 作品一覧、作品ページ文言
+- `data/works.ts` - 制作実績、制作実績ページの文言
 - `data/skills.ts` - スキル
-- `data/contact.ts` - 連絡先
+- `data/contact.ts` - 連絡先、SNS
 - `data/types.ts` - コンテンツ型定義
-- `data/portfolio.ts` - 各データをまとめて公開
+- `data/portfolio.ts` - 各データの集約
+
+基本的には `data/types.ts` と `data/portfolio.ts` は触らず、内容に応じて `site.ts`、`profile.ts`、`works.ts`、`skills.ts`、`contact.ts` を編集します。
 
 ### 基本情報
 
@@ -49,12 +65,41 @@ export const site = {
 
 export const header = {
   name: 'PORTFOLIO.',
-  navigation: [...],
-  ctaButton: { text: 'Let\'s Talk', href: '#contact' },
+  navigation: [
+    { name: 'About', href: '#about' },
+    { name: 'Works', href: '#works' },
+  ],
+  ctaButton: { text: "Let's Talk", href: '#contact' },
 };
 ```
 
-### 作品の追加
+### プロフィールと経歴
+
+```typescript
+// data/profile.ts
+export const about = {
+  title: 'About Me',
+  subtitle: 'プロフィール',
+  profileImage: '/images/prof.jpg',
+  description: ['自己紹介文をここに書きます。'],
+  highlights: [{ label: 'favorite language', value: 'Go' }],
+  career: [
+    {
+      id: 1,
+      year: '2026',
+      title: 'イベント名',
+      category: 'Event',
+      description: '一覧に表示する説明',
+      fullDescription: '詳細ページに表示する説明',
+      tags: ['Go', 'Backend'],
+      highlights: ['取り組んだこと'],
+      link: '/career/1',
+    },
+  ],
+};
+```
+
+### 制作実績の追加
 
 ```typescript
 // data/works.ts
@@ -63,145 +108,158 @@ export const works = [
     id: 1,
     title: 'プロジェクト名',
     category: 'WebApp',
-    description: '短い説明',
-    fullDescription: '詳細な説明',
+    description: '一覧やカードに表示する短い説明',
+    fullDescription: '詳細ページに表示する説明',
     tags: ['Next.js', 'TypeScript'],
-    image: '/images/project.png', // public/images/ に配置
+    image: '/images/project.png',
     link: '/works/1',
     externalLinks: {
       demo: 'https://demo.example.com',
       github: 'https://github.com/...',
     },
   },
-  // ...
 ];
 ```
 
-### プロフィール画像
+画像は `public/images/` に置き、`/images/ファイル名` の形式で指定します。
+
+### スキル
 
 ```typescript
-// data/profile.ts
-about: {
-  profileImage: '/images/prof.jpg',  // public/images/ に配置
-  // ...
-}
+// data/skills.ts
+export const skills = [
+  {
+    category: 'Backend',
+    items: ['Go', 'MySQL', 'Redis', 'Docker'],
+  },
+];
 ```
 
-### アイコンの変更
+### 連絡先
 
-使用可能なアイコン名:
-
-- 一般: `code`, `sparkles`, `heart`, `star`, `rocket`, `globe`
-- 技術: `terminal`, `database`, `server`, `cloud`, `cpu`
-- デバイス: `smartphone`, `monitor`, `laptop`
-- SNS: `github`, `twitter`, `linkedin`, `instagram`
-
-```javascript
-floatingCards: [
-  { icon: 'code', ... },
-  { icon: 'sparkles', ... },
-]
+```typescript
+// data/contact.ts
+export const contact = {
+  email: 'your-email@example.com',
+  social: [
+    { name: 'GitHub', url: 'https://github.com/yourname', icon: 'github' },
+    { name: 'X', url: 'https://x.com/yourname', icon: 'x' },
+  ],
+};
 ```
 
-## � ブログ記事の追加
+使用できるアイコン名は `data/types.ts` の `IconName` または `lib/icons.ts` を確認してください。
 
-`content/blog/` ディレクトリに `.md` ファイルを追加するだけで記事が公開されます。
+## ブログ記事の追加
 
-### 記事のフォーマット
+`content/blog/` に `.md` ファイルを追加すると、ブログ一覧と詳細ページに反映されます。
 
 ```markdown
 ---
 title: '記事タイトル'
 date: '2026-01-22'
-excerpt: '記事の概要（一覧ページに表示されます）'
+excerpt: '記事の概要'
 tags: ['タグ1', 'タグ2']
 ---
 
 # 本文
 
-Markdown形式で記事を書けます。
-
-## 見出し2
-
-- リスト
-- リスト
-
-\`\`\`javascript
-// コードブロックも使えます
-const hello = "world";
-\`\`\`
+Markdown 形式で記事を書けます。
 ```
 
-### ブログページ
+ブログの URL は次の形式です。
 
 - 一覧: `/blog`
 - 詳細: `/blog/[ファイル名（拡張子なし）]`
 
-## �📁 ディレクトリ構成
+## ページ構成
 
-```
+- `/` - ホーム
+- `/works` - 制作実績一覧
+- `/works/[id]` - 制作実績詳細
+- `/career/[id]` - 経歴詳細
+- `/blog` - ブログ一覧
+- `/blog/[slug]` - ブログ記事詳細
+
+## ディレクトリ構成
+
+```text
 portfolio/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx          # レイアウト設定
-│   ├── page.tsx            # ホームページ
-│   ├── globals.css         # グローバルスタイル
-│   ├── blog/               # ブログページ
-│   │   ├── page.tsx        # 一覧ページ
-│   │   └── [slug]/         # 詳細ページ
-│   └── works/              # 作品ページ
-├── components/             # Reactコンポーネント
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── globals.css
+│   ├── blog/
+│   │   ├── page.tsx
+│   │   └── [slug]/page.tsx
+│   ├── career/
+│   │   └── [id]/
+│   │       ├── page.tsx
+│   │       └── CareerDetailClient.tsx
+│   └── works/
+│       ├── page.tsx
+│       └── [id]/
+│           ├── page.tsx
+│           └── WorkDetailClient.tsx
+├── components/
+│   ├── About.tsx
+│   ├── Contact.tsx
+│   ├── Footer.tsx
 │   ├── Header.tsx
 │   ├── Hero.tsx
-│   ├── About.tsx
-│   ├── Works.tsx
 │   ├── Skills.tsx
-│   ├── Contact.tsx
-│   └── ...
+│   ├── ThemeToggle.tsx
+│   └── Works.tsx
 ├── content/
-│   └── blog/               # ★ ブログ記事（.md）
+│   └── blog/
 ├── data/
-│   ├── contact.ts          # 連絡先
-│   ├── portfolio.ts        # ★ コンテンツ集約
-│   ├── profile.ts          # プロフィール
-│   ├── site.ts             # サイト設定
-│   ├── skills.ts           # スキル
-│   ├── types.ts            # 型定義
-│   └── works.ts            # 作品
+│   ├── contact.ts
+│   ├── portfolio.ts
+│   ├── profile.ts
+│   ├── site.ts
+│   ├── skills.ts
+│   ├── types.ts
+│   └── works.ts
 ├── lib/
-│   ├── icons.ts            # アイコンマッピング
-│   └── blog.ts             # ブログユーティリティ
+│   ├── blog.ts
+│   ├── career.ts
+│   ├── icons.ts
+│   ├── skill-icons.tsx
+│   └── works.ts
 └── public/
-    └── images/             # 画像ファイル
+    └── images/
 ```
 
-## 🎨 カスタマイズ
+## スタイル
 
-### テーマカラーの変更
-
-`app/globals.css` で色を変更:
+グローバルスタイルとテーマトークンは `app/globals.css` にあります。
 
 ```css
 @theme {
-  --color-orange: #ff6b35; /* メインカラー */
-  --color-pink: #ff6b9d; /* アクセントカラー */
-  --color-cream: #faf8f5; /* 背景色 */
+  --color-orange: #ff6b35;
+  --color-pink: #ff6b9d;
+  --color-cream: #faf8f5;
 }
 ```
 
-## 📦 デプロイ
+Tailwind CSS v4 を使っているため、色や余白などのデザイントークンは `@theme` で管理します。
 
-### Vercel (推奨)
+## 技術スタック
 
-1. GitHub にプッシュ
-2. [Vercel](https://vercel.com) でリポジトリをインポート
-3. 自動デプロイ完了
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- Lucide React
+- gray-matter
+- remark / remark-html
 
-## 🛠 技術スタック
+## デプロイ
 
-- [Next.js 16](https://nextjs.org/) - React フレームワーク
-- [Tailwind CSS v4](https://tailwindcss.com/) - スタイリング
-- [Framer Motion](https://www.framer.com/motion/) - アニメーション
-- [Lucide React](https://lucide.dev/) - アイコン
-- [TypeScript](https://www.typescriptlang.org/) - 型安全性
-- [gray-matter](https://github.com/jonschlinkert/gray-matter) - Markdownメタデータ
-- [remark](https://github.com/remarkjs/remark) - Markdown変換
+Vercel でのデプロイを想定しています。
+
+1. GitHub に push
+2. Vercel でリポジトリを import
+3. Build Command は `npm run build`
+4. Install Command は `npm install`
